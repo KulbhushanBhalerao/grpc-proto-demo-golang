@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package greeting;
+
+// Go package name for generated code
+option go_package = "github.com/KulbhushanBhalerao/grpc-proto-demo-golang/proto/greeting";
+
+// The greeting service definition
+service GreetingService {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+  
+  // Sends multiple greetings
+  rpc SayHelloMultiple (HelloRequest) returns (stream HelloResponse) {}
+}
+
+// The request message containing the user's name
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greeting
+message HelloResponse {
+  string message = 1;
+  int32 count = 2;
+}
